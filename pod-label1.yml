@@ -8,11 +8,12 @@ metadata:
       purpose: learning
 spec:
    containers:
-      - name: cuda-container
-        image: "k8s.gcr.io/cuda-vector-add:v0.1"
-        resources:
-          limits:
-            cpu: "500Mi"
+      - name: kuard
+        image: "gcr.io/kuar-demo/kuard-amd64:1"
+        ports:
+         - containerPort: 8080
+           name: http
+           protocol: TCP
             
   
 

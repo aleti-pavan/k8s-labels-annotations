@@ -30,8 +30,14 @@ Label value
 $ kubectl apply -f pod-label1.yml 
 pod/label-test created
 
-We are not worried about the status of the pod, purpose of this example is only to show LABELS
+Check the Pod is running
 
-$ kubectl get pod label-test --show-labels
+$ kubectl get po
+NAME         READY     STATUS    RESTARTS   AGE
+label-test   1/1       Running   0          4s
+
+with labels in the output
+
+$ kubectl get po --show-labels
 NAME         READY     STATUS    RESTARTS   AGE       LABELS
-label-test   0/1       Pending   0          1m        env=testing,purpose=learning,team=randd
+label-test   1/1       Running   0          55s       env=testing,purpose=learning,team=randd
