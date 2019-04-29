@@ -1,6 +1,12 @@
 # Kubernetes Manifests using labels and annotations
 
+Labels and Annotations can be used by all of the Kubernetes API Objects like Pod, Service, Deployment, Ingress, Secret, ReplicaSet, DemonSet, Jobs ... etc
+
+Labels:
+======
+
 Below is an overview of the Kubernetes labeling syntax. There are 3 things you have to consider; label key (label prefix, label name) and label value.
+
 
 Label Key
 ---------
@@ -37,6 +43,7 @@ pod/label-test2 created
 
 
 Check the Pod is running
+------------------------
 
 $ kubectl get po
 NAME          READY     STATUS    RESTARTS   AGE
@@ -44,7 +51,8 @@ label-test    1/1       Running   0          8m
 label-test2   1/1       Running   0          4s
 
 
-with labels in the output
+With labels in the output
+-------------------------
 
 $ kubectl get po --show-labels
 NAME          READY     STATUS    RESTARTS   AGE       LABELS
@@ -53,6 +61,7 @@ label-test2   1/1       Running   0          56s       env=testing,owner=pavan,t
 
 
 Query pods based on labels
+--------------------------
 
 $ kubectl get po --selector team=randd
 NAME         READY     STATUS    RESTARTS   AGE
@@ -90,8 +99,45 @@ pod "label-test2" deleted
 
 
 
+Annotations:
+===========
+
+You can use Kubernetes annotations to attach arbitrary non-identifying metadata to objects. Clients such as tools and libraries can retrieve this metadata.
+
+Annotations are NOT used to identify and select objects. The metadata in an annotation can be small or large, structured or unstructured, and can include characters not permitted by labels.
+
+Like labels, annotations are also contains two parts 
 
 
+Annotations are key/value pairs. 
 
+Annotation key - (annotation prefix, annotation name)
+Annotation Value - value
+
+Annotation Key:
+--------------
+
+        Annotation Prefix:
+        ------------------
+            Annotation prefix is optional
+            Annotation prefixes can be no longer than 253 characters
+            Annotation prefix must be a DNS subdomain
+            Annotation prefix can also be a series of DNS subdomains, separated by “.”
+            Annotation prefixes have to end with “/”
+
+        Annotation name
+        ---------------
+            Annotation name is required
+            Annotation names can be up to 63 characters
+            Characters have to be alphanumeric characters
+            Annotation names can also include “-”, “_” and “.”
+            Annotation names have to begin and end with an alphanumeric character
+
+Annotation value
+----------------
+        Label values can be up to 63 characters long
+        Characters have to be alphanumeric characters
+        Label values can also include “-”, “_” and “.”
+        Label values have to begin and end with an alphanumeric character
 
 
