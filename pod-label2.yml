@@ -3,6 +3,7 @@ kind: Pod
 metadata:
    name: label-test2
    labels:
+      #Below are labels
       env: testing
       owner: pavan
       team: sales
