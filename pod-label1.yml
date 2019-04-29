@@ -4,8 +4,8 @@ metadata:
    name: label-test
    labels:
       env: testing
+      owner: pavan
       team: randd
-      purpose: learning
 spec:
    containers:
       - name: kuard
