@@ -36,11 +36,9 @@ Create some pods:
 ----------------
 
 $ kubectl apply -f pod-label1.yml 
-
 pod/label-test created
 
 $ kubectl apply -f pod-label2.yml 
-
 pod/label-test2 created
 
 
