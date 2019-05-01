@@ -166,5 +166,3 @@ Lab for Annotations:
 -------------------
 
 $ kubectl apply -f pod-annotation1.yml 
-
-pod/nginx-pod-annotation created
