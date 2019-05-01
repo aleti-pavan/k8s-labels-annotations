@@ -32,8 +32,8 @@ Label value
         Label values can also include “-”, “_” and “.”
         Label values have to begin and end with an alphanumeric character
 
-Create some pods:
-----------------
+Create pods with labels:
+-----------------------
 
 $ kubectl apply -f pod-label1.yml 
 
@@ -162,4 +162,9 @@ Annotation value
         Label values can also include “-”, “_” and “.”
         Label values have to begin and end with an alphanumeric character
 
+Lab for Annotations:
+-------------------
 
+$ kubectl apply -f pod-annotation1.yml 
+
+pod/nginx-pod-annotation created
