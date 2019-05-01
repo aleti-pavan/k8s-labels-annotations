@@ -1,0 +1,8 @@
+#Although we can use labels and annotations with every object of kubernetes we are going to see the annotation example with Pods
+
+apiVersion: v1
+kind: Pod
+metadata:
+   name: annotation-pod1
+   annotations:
+      
