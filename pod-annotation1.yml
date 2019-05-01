@@ -1,8 +1,15 @@
 #Although we can use labels and annotations with every object of kubernetes we are going to see the annotation example with Pods
 
+#Remember: Annotations are 'non-identifying' metadata
+
 apiVersion: v1
 kind: Pod
 metadata:
-   name: annotation-pod1
-   annotations:
-      
+  name: nginx-pod
+  annotations:
+    collectord.io/logs-override.1-match: ^(\d{1,3}\.){3}\d{1,3}
+    collectord.io/logs-override.1-source: /kubernetes/nginx/web-log
+spec:
+  containers:
+  - name: nginx
+    image: nginx
