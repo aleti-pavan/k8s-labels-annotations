@@ -76,6 +76,7 @@ NAME         READY     STATUS    RESTARTS   AGE
 
 label-test   1/1       Running   0          3m
 
+
 $ kubectl get po --selector owner=pavan
 
 NAME          READY     STATUS    RESTARTS   AGE
@@ -84,7 +85,9 @@ label-test    1/1       Running   0          9m
 
 label-test2   1/1       Running   0          1m
 
+
 We can replace --selector with -l for simplicity
+
 
 $ kubectl get po -l owner=pavan
 
@@ -93,6 +96,7 @@ NAME          READY     STATUS    RESTARTS   AGE
 label-test    1/1       Running   0          9m
 
 label-test2   1/1       Running   0          1m
+
 
 $ kubectl get po -l team=randd
 
@@ -103,6 +107,7 @@ label-test   1/1       Running   0          9m
 
 Now, Lets get the pods belong to the team sales and randd
 
+
 $ kubectl get po -l 'team in (randd,sales)'
 
 NAME          READY     STATUS    RESTARTS   AGE
@@ -111,7 +116,9 @@ label-test    1/1       Running   0          12m
 
 label-test2   1/1       Running   0          4m
 
+
 If you want remove both of these pods you can do by below command
+
 
 $ kubectl delete pods -l 'team in (randd,sales)'
 
@@ -168,3 +175,31 @@ Lab for Annotations:
 $ kubectl apply -f pod-annotation1.yml 
 
 pod/nginx-pod-annotation created
+
+
+$ kubectl get po
+
+NAME                   READY     STATUS    RESTARTS   AGE
+
+nginx-pod-annotation   1/1       Running   0          3m
+
+
+If you want to see the annotations of the pod use describe command on the pod
+
+
+$ kubectl describe pod nginx-pod-annotation
+
+Name:               nginx-pod-annotation
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-gke-cl-terraform-gke-eu-62e1fab7-03bl/10.1.0.7
+Start Time:         Thu, 02 May 2019 08:42:53 +0100
+Labels:             <none>
+Annotations:        collectord.io/logs-override.1-match=^(\d{1,3}\.){3}\d{1,3}
+                    collectord.io/logs-override.1-source=/kubernetes/nginx/web-log
+                    kubectl.kubernetes.io/last-applied-configuration={"apiVersion":"v1","kind":"Pod","metadata":{"annotations":{"collectord.io/logs-override.1-match":"^(\\d{1,3}\\.){3}\\d{1,3}","collectord.io/logs-overri...
+                    kubernetes.io/limit-ranger=LimitRanger plugin set: cpu request for container nginx
+Status:             Running
+IP:                 10.56.4.4
+Containers:
